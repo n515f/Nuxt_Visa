@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    /* ==============================
+       ⚙️ الإعدادات الأساسية
+    ============================== */
+    "target": "ES2022",                 // مستوى حديث ومتوافق مع Vite وNode 18+
+    "lib": ["ES2022"],                  // إزالة ES2023 لتفادي التحذيرات
+    "module": "ESNext",                 // دعم أحدث صيغة للوحدات
+    "moduleResolution": "bundler",      // مطلوب لـ Vite وRollup
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "noEmit": true,                     // لا نريد إخراج ملفات JS (Vite يبني كل شيء)
+    "skipLibCheck": true,
+
+    /* ==============================
+       🧠 التحقق من الأنواع
+    ============================== */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* ==============================
+       🧭 دعم مسارات المشروع
+    ============================== */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* ==============================
+       🧩 تحسين التوافق
+    ============================== */
+    "types": ["node"],                  // يضيف أنواع Node.js تلقائيًا
+    "moduleDetection": "force",
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["vite.config.ts"]
+}

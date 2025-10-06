@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nux.T Visa Design System - Modern Arabic/English Platform */
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --primary: 262 83% 42%;
+    --primary-light: 262 70% 65%;
+    --primary-dark: 262 90% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 189 100% 38%;
+    --secondary-light: 189 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 305 100% 47%;
+    --accent-light: 305 80% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Neutral Colors - Light Theme */
+    --background: 240 10% 98%;
+    --foreground: 225 25% 8%;
+
+    --surface: 0 0% 100%;
+    --surface-elevated: 240 20% 96%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 25% 8%;
+    --card-border: 240 20% 90%;
+
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 262 83% 42%;
+
+    /* Glass Effect */
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 255 255 255 / 0.2;
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px rgba(92, 12, 207, 0.15);
+    --shadow-card: 0 4px 20px rgba(16, 17, 20, 0.08);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(240 20% 95%), hsl(262 40% 85%));
+    --gradient-brand: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+
+    --radius: 1rem;
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* نمط الداكن عبر data-theme أو class */
+  [data-theme="dark"], .dark {
+    --background: 225 35% 5%;
+    --foreground: 240 25% 95%;
+
+    --surface: 225 40% 8%;
+    --surface-elevated: 225 35% 12%;
+
+    --card: 225 45% 10%;
+    --card-foreground: 240 25% 95%;
+    --card-border: 225 30% 20%;
+
+    --muted: 225 30% 15%;
+    --muted-foreground: 240 15% 75%;
+
+    --border: 225 30% 18%;
+    --input: 225 30% 18%;
+
+    --glass-bg: 0 0% 0% / 0.4;
+    --glass-border: 255 255 255 / 0.1;
+
+    --shadow-elegant: 0 10px 40px rgba(92, 12, 207, 0.3);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+    --gradient-hero: linear-gradient(135deg, hsl(225 40% 8%), hsl(262 50% 15%));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] { text-align: right; }
+  [dir="ltr"] { text-align: left; }
+}
+
+@layer components {
+  /* Glass Effect Components — البادئة أولاً ثم الخاصية */
+  .glass {
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    background: hsl(var(--glass-bg));
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  /* Brand Gradients */
+  .gradient-brand { background: var(--gradient-brand); }
+  .gradient-hero  { background: var(--gradient-hero); }
+  .gradient-accent{ background: var(--gradient-accent); }
+
+  /* Enhanced Shadows */
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glass   { box-shadow: var(--shadow-glass); }
+
+  /* Buttons (بدون @apply) */
+  .btn-nux {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    background: var(--gradient-brand);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-elegant);
+  }
+  .btn-nux:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.10), 0 8px 10px -6px rgb(0 0 0 / 0.10);
+  }
+
+  .btn-ghost-nux {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+  }
+  .btn-ghost-nux:hover {
+    background-color: hsl(var(--primary) / 0.10);
+    border-color: hsl(var(--primary) / 0.4);
+    transform: scale(1.05);
+  }
+
+  /* Card Hover */
+  .card-hover { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .card-hover:hover { transform: translateY(-0.5rem); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.10), 0 8px 10px -6px rgb(0 0 0 / 0.10); }
+
+  .card-glow { position: relative; transition: var(--transition-smooth); }
+  .card-glow::before {
+    content: ''; position: absolute; inset: -2px;
+    background: var(--gradient-brand); border-radius: inherit;
+    opacity: 0; transition: opacity 0.3s ease; z-index: -1;
+  }
+  .card-glow:hover::before { opacity: 0.6; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
+  .reveal.animate-in { opacity: 1; transform: translateY(0); }
+
+  /* Text Effects */
+  .text-gradient {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Floating + Pulse + Marquee */
+  .float { animation: float 6s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+  .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+  @keyframes pulseGlow {
+    0%,100%{ box-shadow:0 0 20px hsl(var(--primary) / 0.3) }
+    50%{    box-shadow:0 0 40px hsl(var(--primary) / 0.6) }
+  }
+
+  .marquee { overflow: hidden; white-space: nowrap; }
+  .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+  @keyframes marquee { 0%{transform:translateX(100%)} 100%{transform:translateX(-100%)} }
+
+  /* Timeline */
+  .timeline-step {
+    position: relative;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 1.5rem;
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--card-border));
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .timeline-step:hover { transform: translateY(-0.25rem); }
+  .timeline-step::after {
+    content: ''; position: absolute; top: 50%; right: -2rem;
+    width: 4rem; height: 2px; background: var(--gradient-brand); z-index: -1;
+  }
+  .timeline-step:last-child::after { display: none; }
+  [dir="rtl"] .timeline-step::after { right: auto; left: -2rem; }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  }
+  .faq-item:last-child { border-bottom: 0; }
+  .faq-trigger {
+    width: 100%; padding: 1.5rem; text-align: left; font-weight: 600;
+    transition: color .15s ease;
+  }
+  .faq-trigger:hover { color: hsl(var(--primary)); }
+  .faq-content {
+    padding: 0 1.5rem 1.5rem; color: hsl(var(--muted-foreground));
+  }
+}

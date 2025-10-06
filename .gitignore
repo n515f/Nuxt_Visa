@@ -1,0 +1,65 @@
+# =========================
+# ✅ Core Node & Build Artifacts
+# =========================
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+
+# =========================
+# ✅ Logs & Diagnostics
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.tsbuildinfo
+
+# =========================
+# ✅ Environment Files
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# ✅ OS / Editor files
+# =========================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+
+# =========================
+# ✅ Test & Coverage
+# =========================
+coverage/
+*.lcov
+jest-cache/
+.vitest/
+
+# =========================
+# ✅ Miscellaneous
+# =========================
+*.pid
+*.seed
+*.tgz
+*.zip
+
+# =========================
+# ✅ Lock files (optional to ignore in teams)
+# =========================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
