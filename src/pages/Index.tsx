@@ -31,6 +31,39 @@ const Index = ({ language }: IndexProps) => {
       <section id="home" className="reveal">
         <Hero language={language} />
       </section>
+
+      {/* إعلانات الصفحة الرئيسية */}
+      <section id="ads-home" className="reveal">
+        <div className="container mx-auto px-4 py-6">
+          <div className="ad-grid">
+            <a
+              href="/#services"
+              className="ad-card"
+              aria-label={language === "ar" ? "إعلان رئيسي 1" : "Home banner 1"}
+            >
+              <img
+                src="/ads/home-banner-1.webp"
+                loading="lazy"
+                alt={language === "ar" ? "إعلان رئيسي 1" : "Home banner 1"}
+                className="ad-image"
+              />
+            </a>
+            <a
+              href="/#process"
+              className="ad-card"
+              aria-label={language === "ar" ? "إعلان رئيسي 2" : "Home banner 2"}
+            >
+              <img
+                src="/ads/home-banner-2.webp"
+                loading="lazy"
+                alt={language === "ar" ? "إعلان رئيسي 2" : "Home banner 2"}
+                className="ad-image"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section id="services" className="reveal">
         <div className="container mx-auto px-4 py-8">
           <Services language={language} />

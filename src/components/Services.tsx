@@ -1,9 +1,18 @@
+// أعلى الملف
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, CreditCard, Users, CheckCircle, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface ServicesProps {
   language: 'ar' | 'en';
+}
+
+interface ServiceItem {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  features: string[];
+  color: string;
 }
 
 const Services = ({ language }: ServicesProps) => {
@@ -112,11 +121,11 @@ const Services = ({ language }: ServicesProps) => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentContent.services.map((service, index) => {
+          {currentContent.services.map((service: ServiceItem, index: number) => {
             const Icon = service.icon;
             return (
               <Card 
-                key={index}
+                key={service.title}
                 className="card-hover card-glow reveal animate-in border-0 shadow-card bg-card/50 backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
@@ -135,7 +144,7 @@ const Services = ({ language }: ServicesProps) => {
                 <CardContent>
                   {/* Features List */}
                   <div className="space-y-3 mb-6">
-                    {service.features.map((feature, idx) => (
+                    {service.features.map((feature: string, idx: number) => (
                       <div key={idx} className="flex items-center gap-3">
                         <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                         <span className="text-sm text-muted-foreground">{feature}</span>
@@ -169,7 +178,7 @@ const Services = ({ language }: ServicesProps) => {
             </h3>
             <p className="text-muted-foreground mb-6">
               {language === 'ar' 
-                ? 'تواصل معنا مباشرة للحصول على استشارة مخصصة لحالتك'
+                ? 'تواصل معنا مباشرة للصول على استشارة مخصصة لحالتك'
                 : 'Contact us directly for personalized consultation for your case'
               }
             </p>
@@ -194,6 +203,6 @@ const Services = ({ language }: ServicesProps) => {
       </div>
     </section>
   );
-};
+}
 
 export default Services;

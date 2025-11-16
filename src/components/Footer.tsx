@@ -180,7 +180,7 @@ const Footer = ({ language }: FooterProps) => {
               {currentContent.infoLinks.map((link, index) => (
                 <li key={index}>
                   <a 
-                    href="#"
+                    href="/#services"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link}

@@ -90,8 +90,8 @@
 
   html {
     scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   * {
@@ -225,4 +225,85 @@
   .faq-content {
     padding: 0 1.5rem 1.5rem; color: hsl(var(--muted-foreground));
   }
+  /* Ads — grid + cards + banner */
+  .ad-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .ad-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .ad-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card) / 0.85);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .ad-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elegant);
+  }
+  .ad-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.10), hsl(var(--secondary) / 0.10));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .ad-card:hover::after { opacity: 1; }
+
+  .ad-banner {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card) / 0.85);
+    box-shadow: var(--shadow-card);
+  }
+
+  .ad-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+/* Animations — consistency & visual identity */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.anim-fade-in { animation: fade-in 300ms ease-out both; }
+.anim-slide-up { animation: slide-up 450ms ease-out both; }
+.anim-hover-pop:hover { animation: pop 180ms ease-out; }
+.anim-pulse-badge { animation: pulse-badge 1600ms ease-in-out infinite; }
+
+.card-hover {
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
